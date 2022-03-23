@@ -56,3 +56,4 @@ dist/
 
 # Credentials Info
 credentials.txt
+.env
