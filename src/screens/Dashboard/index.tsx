@@ -25,6 +25,7 @@ import {
     LoadContainer
 } from "./styles";
 import { LastTransaction } from "../../components/HighlightCard/styles";
+import { useAuth } from "../../hooks/auth";
 
 export interface DataListProps extends TransactionCardProps {
     id: string;
@@ -47,6 +48,7 @@ export function Dashboard() {
     const [highlightData, setHighlightData] = useState<HighlightData>({} as HighlightData);
 
     const theme = useTheme();
+    const { signOut } = useAuth();
 
     function getLastTransactionDate(collection: DataListProps[], type: 'positive' | 'negative') {
         
@@ -165,7 +167,7 @@ export function Dashboard() {
                                 </User>
                             </UserInfo>
 
-                            <LogoutButton onPress={() => {}}>
+                            <LogoutButton onPress={signOut}>
                                 <Icon name="power" />
                             </LogoutButton>
                         </UserWrapper>
